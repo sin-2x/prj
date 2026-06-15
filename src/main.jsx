@@ -91,7 +91,6 @@ function AudioPlayer() {
       </button>
       <div className="track-info">
         <div className="track-title">Өзіңді аңсап</div>
-        <div className="track-artist">Мен айтқым келген ән</div>
         <input
           className="progress"
           type="range"
