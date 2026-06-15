@@ -112,6 +112,15 @@ input {
   line-height: 0.95;
 }
 
+.login-hint {
+  margin: -2px 0 4px;
+  color: rgba(23, 54, 75, 0.72);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.55;
+}
+
 .login-card label {
   display: grid;
   gap: 8px;

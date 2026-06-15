@@ -194,6 +194,7 @@ function LoginGate({ onUnlock }) {
       <form className="login-card" onSubmit={submit}>
         <span className="login-kicker">жеке хат</span>
         <h1>Тек саған</h1>
+        <p className="login-hint">Логин — сенің атың. Құпия сөз — туған күнің, айың және жылың.</p>
         <label>
           <span>Логин</span>
           <input
@@ -201,17 +202,15 @@ function LoginGate({ onUnlock }) {
             value={login}
             onChange={(event) => setLogin(event.target.value)}
             autoComplete="username"
-            placeholder="Dinara"
           />
         </label>
         <label>
-          <span>Пароль</span>
+          <span>Құпия сөз</span>
           <input
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
-            placeholder="••••••••"
           />
         </label>
         {error && <p className="login-error">{error}</p>}
