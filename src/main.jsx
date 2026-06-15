@@ -169,7 +169,65 @@ function KazakhOrnament({ position }) {
   );
 }
 
+function LoginGate({ onUnlock }) {
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const submit = (event) => {
+    event.preventDefault();
+
+    if (login.trim() === 'Dinara' && password === '26052006') {
+      sessionStorage.setItem('love-letter-unlocked', 'true');
+      onUnlock();
+      return;
+    }
+
+    setError('Логин немесе пароль дұрыс емес');
+  };
+
+  return (
+    <main className="page login-page">
+      <Snow />
+      <KazakhOrnament position="top" />
+      <KazakhOrnament position="bottom" />
+      <form className="login-card" onSubmit={submit}>
+        <span className="login-kicker">жеке хат</span>
+        <h1>Тек саған</h1>
+        <label>
+          <span>Логин</span>
+          <input
+            type="text"
+            value={login}
+            onChange={(event) => setLogin(event.target.value)}
+            autoComplete="username"
+            placeholder="Dinara"
+          />
+        </label>
+        <label>
+          <span>Пароль</span>
+          <input
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            autoComplete="current-password"
+            placeholder="••••••••"
+          />
+        </label>
+        {error && <p className="login-error">{error}</p>}
+        <button className="login-button" type="submit">Ашу</button>
+      </form>
+    </main>
+  );
+}
+
 function App() {
+  const [unlocked, setUnlocked] = useState(() => sessionStorage.getItem('love-letter-unlocked') === 'true');
+
+  if (!unlocked) {
+    return <LoginGate onUnlock={() => setUnlocked(true)} />;
+  }
+
   return (
     <main className="page">
       <Snow />
