@@ -203,6 +203,7 @@ function LoginGate({ onUnlock }) {
             value={login}
             onChange={(event) => setLogin(event.target.value)}
             autoComplete="username"
+            placeholder="Есіміңді латынша бас әріппен жаз"
           />
         </label>
         <label>
@@ -212,6 +213,7 @@ function LoginGate({ onUnlock }) {
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             autoComplete="current-password"
+            placeholder="мысалы: 16062026"
           />
         </label>
         {error && <p className="login-error">{error}</p>}
